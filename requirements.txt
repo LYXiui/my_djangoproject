@@ -2,3 +2,13 @@ asgiref==3.11.1
 Django==6.0.3
 sqlparse==0.5.5
 tzdata==2025.3
+
+執行伺服器:
+python manage.py runserver
+
+虛擬環境:
+Scripts\activate
+
+同步資料庫:
+python manage.py makemigrations
+python manage.py migrate
