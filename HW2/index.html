@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HW2 - 資工選課表</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body { padding: 20px; font-family: "Microsoft JhengHei", sans-serif; }
+        table { width: 100%; margin-bottom: 20px; border-collapse: collapse; }
+        th, td { padding: 10px; text-align: left; border: 1px solid #dee2e6; }
+        th { background-color: #f8f9fa; }
+        .course-link { color: #0d6efd; cursor: pointer; text-decoration: underline; }
+    </style>
+</head>
+<body>
+
+    <h2 id="title">資工選課表</h2> [cite: 90, 93]
+
+    <table id="csie" class="table table-bordered"> [cite: 91, 107]
+        <thead>
+            <tr>
+                <th>開課單位</th>
+                <th>課程名稱</th>
+                <th>授課教師</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>資工系</td>
+                <td class="course-link" 
+                    data-bs-toggle="popover" 
+                    title="課程詳細資訊" 
+                    data-bs-content="學年/學期：114/2 <br> 開課序號：A2337 <br> 人數限制：10-60 <br> 上課時間：星期五 09:10~12:00" 
+                    data-bs-html="true">
+                    物件導向軟體設計
+                </td>
+                <td>黃崇源</td>
+            </tr>
+            <tr>
+                <td>資工系</td>
+                <td>計算機網路實驗</td>
+                <td>李春良</td>
+            </tr>
+            <tr>
+                <td>資工系</td>
+                <td>作業系統實務</td>
+                <td>張哲維</td>
+            </tr>
+            <tr>
+                <td>資工系</td>
+                <td>生物統計</td>
+                <td>陳光武</td>
+            </tr>
+            <tr>
+                <td>資工系</td>
+                <td>通訊系統</td>
+                <td>陳仁暉</td>
+            </tr>
+            <tr>
+                <td>資工系</td>
+                <td>軟硬體專題(2)</td>
+                <td>魏志達</td>
+            </tr>
+        </tbody>
+    </table> [cite: 101, 107]
+
+    <button type="button" class="btn btn-primary" onclick="changeResult()">Change</button> [cite: 97]
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+
+    <script>
+        // 1. 初始化所有 Popover
+        var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
+        var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+            return new bootstrap.Popover(popoverTriggerEl)
+        })
+
+        // 2. 實作 Change 按鈕功能：修改第一列的老師為李春良
+        function changeResult() {
+            var table = document.getElementById("csie"); [cite: 91]
+            // rows[1] 是第一筆資料(排除標頭)，cells[2] 是授課教師欄位
+            table.rows[1].cells[2].innerHTML = "李春良"; 
+        }
+    </script>
+</body>
+</html>
