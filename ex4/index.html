@@ -1,0 +1,29 @@
+function tree(n) {
+  printTreeTop(n);
+  printTreeBottom(n);
+}
+
+function printTreeTop(n) {
+  for (let row = 1; row <= n; row++) {
+    let i = n - row;
+    let j = 2 * row - 1;
+    console.log(repeatchar(i, ' ') + repeatchar(j, '*'));
+  }
+}
+
+function printTreeBottom(n) {
+  for (let row = 0; row < 3; row++) {
+    let i = n - 1; 
+    console.log(repeatchar(i, ' ') + '*');
+  }
+}
+
+function repeatchar(count, arg_char) {
+  let result = "";
+  for (let k = 0; k < count; k++) {
+    result += arg_char;
+  }
+  return result;
+}
+
+tree(4);
