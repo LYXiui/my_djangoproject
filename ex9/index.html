@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>ex9 Flickr Gallery</title>
+
+<style>
+.gallery {
+  --g: 6px;
+
+  display: grid;
+  width: 1200px;
+  aspect-ratio: 1;
+  grid: auto-flow 1fr / repeat(3,1fr);
+  gap: var(--g);
+}
+
+.gallery img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale();
+  cursor: pointer;
+  transition: .5s;
+}
+
+.gallery img:hover {
+  filter: grayscale(0);
+}
+
+.gallery img:nth-child(2) {
+  grid-area: 1/2/span 2/span 2;
+}
+
+.gallery img:nth-child(3) {
+  grid-area: 2/1/span 2/span 2;
+}
+</style>
+
+</head>
+<body>
+
+<button onclick="getimg()">Get IMG</button>
+
+<div id="gallery" class="gallery"></div>
+
+<script src="script.js"></script>
+</body>
+</html>
